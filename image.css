@@ -64,13 +64,13 @@ form{
     grid-row-gap: 4px;
 }
 .res{
-    border: 3px solid black;
+    border: 3px solid rgb(78, 12, 90);
     cursor: pointer;
     border-radius: 4px;
+    /* width: 130px;
+    height: 130px; */
 }
 #More-img{
-    position: absolute;
-    bottom: 0;
     width: 100px;
     height: 30px;
     border: 2px solid rgb(5, 5, 5);
@@ -80,6 +80,7 @@ form{
     background-color: rgba(100, 19, 100, 0.799);
     color: white;
     cursor: pointer;
+    display: none;
 }
 #More-img:hover{
     color: white;
