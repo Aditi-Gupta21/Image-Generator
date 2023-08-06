@@ -3,14 +3,12 @@ let input = document.getElementById("input-search");
 let search = document.getElementById("Search");
 let searchResultEl = document.getElementById("results");
 let more = document.getElementById("More-img");
-let page =1;
-// if(page===1){
-//     searchResultEl.innerHTML = "";
-// }
+let page =0;
+
 search.addEventListener('click',(event)=>{
+    searchResultEl.innerHTML=""
     event.preventDefault();
     let inputEl=input.value;
-    page =1;
     searchImg(inputEl);
 })
 async function searchImg(input){
@@ -22,20 +20,25 @@ async function searchImg(input){
     }
     const data = await response.json();
     const results = data.results;
+
+
     results.map((result)=>{
         const imgWrapper = document.createElement("div");
         imgWrapper.classList.add("res");
         const img = document.createElement("img");
         img.src = result.urls.small;
-
         imgWrapper.appendChild(img);
         searchResultEl.appendChild(imgWrapper);
     })
+    page++;
+
+
     console.log(results);
+    if(page >0){
+        more.style.display ="block";
+    }
 }
 
-
-
-// more.addEventListener('click',()=>{
-//     console.log("more");
-// })
+more.addEventListener('click',()=>{
+    searchImg(input.value)
+})
